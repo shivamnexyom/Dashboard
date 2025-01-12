@@ -1,0 +1,83 @@
+@import '../../sass/variable';
+
+.confirmModalRoot {
+    .modalContent {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 24px;
+        width: 512px;
+        border-radius: 12px;
+        background: $white;
+        box-shadow:
+            0 8px 8px -4px rgba(16, 24, 40, 0.03),
+            0 20px 24px -4px rgba(16, 24, 40, 0.08);
+        color: $black200;
+        outline: none;
+
+        h2 {
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 28px;
+            margin: 0 0 16px;
+            position: relative;
+
+            .closeButton {
+                position: absolute;
+                padding: 0;
+                right: 0;
+                width: 24px;
+                height: 24px;
+                color: $black200;
+            }
+        }
+
+        .errorInfo {
+            li {
+                font-size: 14px;
+                font-weight: 400;
+                color: $red100;
+            }
+        }
+
+        .modalDescription {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            color: $siteTextColor;
+        }
+
+        .buttonWrap {
+            text-align: center;
+            margin-top: 32px;
+            display: flex;
+            button {
+                position: relative;
+                color: $black300 !important;
+                border: 1px solid $black300;
+                background: $white;
+                padding: 12px 18px;
+                font-size: 14px;
+                width: calc(50% - 6px);
+                margin-right: 12px;
+                flex-grow: 1;
+                gap: 12px;
+   
+            }
+            .rightButton {
+                color: $white !important;
+                border: 1px solid $red300;
+                background: $red300;
+                margin: 0;
+            }
+            .rightButtonSuccess {
+                color: $white !important;
+                border: 1px solid $black400;
+                background: $black400;
+                margin: 0;
+            }
+        }
+    }
+}

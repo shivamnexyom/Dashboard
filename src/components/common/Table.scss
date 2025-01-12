@@ -1,0 +1,61 @@
+@import '../../../src/sass/variable';
+
+.filterOpen {
+    path {
+        stroke: $green1100;
+    }
+}
+.filterPopover {
+    border-radius: 4px;
+    max-height: 40vh;
+    .filterItem {
+        height: 40px;
+        display: flex;
+        align-items: center;
+        padding: 0 14px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        text-align: left;
+        color: #101828;
+
+        .MuiButtonBase-root {
+            svg {
+                color: #04b2a4;
+            }
+        }
+
+        &:hover {
+            background-color: $grey100;
+        }
+    }
+}
+
+.MuiDateRangeCalendar-root {
+    > div:first-child {
+        display: none;
+    }
+}
+
+.MuiDataGrid-columnSeparator {
+    display: none !important;
+}
+.MuiDataGrid-columnHeader:focus,
+.MuiDataGrid-cell:focus {
+    outline: none !important;
+}
+
+.MuiDataGrid-columnHeaders {
+    border-radius: 12px;
+    & > div {
+        border-radius: 12px;
+        overflow: hidden;
+    }
+}
+
+.searchBar {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    padding: 10px 24px;
+}

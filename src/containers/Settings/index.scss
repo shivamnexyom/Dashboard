@@ -1,0 +1,235 @@
+@import '../../sass/variable';
+
+.settingsWrap-2 {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    height: 100%;
+    overflow: hidden;
+    .upperHead {
+        h1 {
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 32px;
+            color: #1d2939;
+            margin: 0;
+            margin-top: 4px;
+        }
+    }
+    .settingsWrapper {
+        flex-grow: 1;
+        background-color: #ffffff;
+        overflow: auto;
+        border: 1px solid $grey400;
+        border-radius: 10px;
+        display: flex;
+        gap: 10px;
+        aside {
+            border-right: 1px solid $grey800;
+            padding: 24px 0;
+            .active {
+                background-color: $green500;
+                color: $green600;
+            }
+        }
+        .settingsContent {
+            padding: 24px;
+            height: 100%;
+            overflow-y: hidden;
+            width: calc(100% - 250px);
+            .settingsContentWrapper {
+                display: flex;
+                flex-direction: column;
+                gap: 32px;
+                height: 100%;
+                .subHead {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    h2 {
+                        font-size: 20px;
+                        font-weight: 600;
+                        line-height: 30px;
+                        text-align: left;
+                        color: #1d2939;
+                        margin: 0;
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        .countMembers {
+                            background: #eefbfa;
+                            font-size: 12px;
+                            font-weight: 500;
+                            line-height: 18px;
+                            text-align: center;
+                            color: #038e83;
+                            padding: 2px 8px;
+                            border-radius: 11px;
+                        }
+                    }
+                }
+                .mainContainer {
+                    flex-grow: 1;
+                    overflow: auto;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 24px;
+
+                    .MuiDataGrid-filler {
+                        & > div {
+                            border-top: 0 !important;
+                        }
+                    }
+                    .MuiDataGrid-columnHeaders {
+                        border-top-left-radius: 8px;
+                        border-top-right-radius: 8px;
+                        & > div {
+                            background-color: #f9fafb;
+                            .MuiDataGrid-columnHeader {
+                                border-color: #eaecf0;
+                                font-size: 12px;
+                                font-weight: 500;
+                                line-height: 18px;
+                                text-align: left;
+                                color: #667085;
+                            }
+                        }
+                    }
+                    .MuiDataGrid-row {
+                        min-height: 72px !important;
+                        max-height: 72px !important;
+                        .MuiDataGrid-cell {
+                            height: 72px;
+                            display: flex;
+                            align-items: center;
+                        }
+                    }
+                    .MuiCheckbox-root {
+                        .MuiSvgIcon-root {
+                            path {
+                                fill: #d0d5dd;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.mainContainer,
+.dialogContainer {
+    .halfWidthWrap {
+        & > div {
+            float: left;
+            width: 50%;
+
+            &:first-child {
+                padding-right: 2%;
+            }
+        }
+    }
+
+    .inputWrap {
+        margin-bottom: 24px;
+
+        &.errorWrap {
+            .MuiInputBase-root {
+                border: 1px solid $red100;
+            }
+        }
+
+        .warning {
+            margin-top: 8px;
+            color: $red100;
+            font-weight: 500;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+            margin-bottom: 12px;
+        }
+
+        .MuiInputBase-root {
+            border-radius: 8px;
+            border: 1px solid $grey300;
+            background: $white;
+            box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+
+            input {
+                height: inherit;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 24px;
+                padding: 10px 14px;
+            }
+
+            fieldset {
+                display: none;
+            }
+        }
+    }
+}
+
+.addUserDialog {
+    .dialogTitle {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 28px;
+        text-align: left;
+    }
+}
+
+.error {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 30px;
+    margin: 16px 0;
+    color: $red100;
+    text-align: center;
+}
+
+.chipGroup {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    .chip {
+        padding: 2px 8px;
+        border-radius: 11px;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 18px;
+        text-align: center;
+        background-color: $grey600;
+        color: $black300;
+        &.first {
+            color: $green600;
+            background: $green500;
+        }
+        &.second {
+            color: #3538cd;
+            background: #eef4ff;
+        }
+    }
+}
+
+.footBtnChangePass {
+    display: flex;
+    gap: 12px;
+}
+
+.halfWidthWrap .btnChange {
+    border: 1px solid #eefbfa !important;
+    background: #eefbfa !important;
+    color: #038e83 !important;
+    height: 46px;
+}
+
+.iconsAction {
+    cursor: pointer;
+    pointer-events: all;
+}
