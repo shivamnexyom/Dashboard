@@ -44,7 +44,6 @@ export default function LayoutContent({
     console.log("Mock Logout triggered");
     window.location.reload();
   };
-
   const creditExhausted = false;
 
   return (
