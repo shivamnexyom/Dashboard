@@ -8,6 +8,7 @@ export default [
       ecmaVersion: 2021,
       sourceType: 'module',
       globals: {
+        structuredClone: 'readonly',
         browser: true,
         node: true,
       },

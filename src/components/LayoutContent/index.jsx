@@ -1,6 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-// import { useSelector } from 'react-redux';
-import { useLocation, NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import Logo from "../../assets/logo.svg";
@@ -10,10 +9,7 @@ import { ROUTES_CONTENT, ROUTES_CONTENT_USER } from "../../utils/constants";
 import "./index.scss";
 import Avatar from "../common/Avatar";
 import Popover from "@mui/material/Popover";
-// import AuthStore from './../../components/common/AuthStore';
-// import { useGetUserDetailsMutation } from '../../containers/Settings/store/apiService';
 import Skeleton from "../common/Skeleton";
-import Loader from "../Loader";
 import arrowLeft from "../../assets/arrow-left.svg";
 import ThemeToggle from "../common/ThemeToggle";
 
@@ -29,17 +25,8 @@ export default function LayoutContent({
   headerItemsRight,
   children,
   backButtonRoute,
+  isLoading,
 }) {
-  // const userData = useSelector((state) => state.userData || {});
-  // const { user, loadingRefreshToken } = userData;
-
-  // const [getUserDetails, { isLoading }] = useGetUserDetailsMutation();
-  // const [refreshToken] = useRefreshTokenMutation();
-
-  const location = useLocation();
-  const { pathname } = location;
-  // const showInnerDocs = pathname.includes('/organisations/');
-
   const [menuOpen, setMenuOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -55,23 +42,8 @@ export default function LayoutContent({
 
   const logout = () => {
     console.log("Mock Logout triggered");
-    // Mock logout logic
     window.location.reload();
   };
-
-  // const creditExhausted = false;
-
-  // const [getUserDetails, { isLoading, data }] = useGetUserDetailsMutation();
-
-  // useEffect(() => {
-  //     const tempFn = async () => {
-  //         if (!user || !user.FirstName) {
-  //             const response = await getUserDetails(); // Fetch user details
-  //             console.log('getUserDetails response:', response); // Debug log
-  //         }
-  //     };
-  //     tempFn();
-  // }, [user, getUserDetails]);
 
   const creditExhausted = false;
 
@@ -80,7 +52,6 @@ export default function LayoutContent({
       className="layoutContent clearfix"
       style={{ height: creditExhausted ? "calc(100% - 44px)" : "100%" }}
     >
-      {/* {loadingRefreshToken && <Loader position="fixed" />} */}
       <aside>
         <div>
           <div className="upperHead">
@@ -88,16 +59,9 @@ export default function LayoutContent({
           </div>
           {ROUTES_CONTENT.map((routeKey) => {
             const { path, name, imgSrc } = routeKey;
-            // const isActive = showInnerDocs && path === "/";
             return (
               <React.Fragment key={path}>
-                <NavLink
-                  to={path}
-                  test-sidemenu="sidemunu"
-                  //   className={() =>
-                  //     isActive || pathname === path ? "active" : ""
-                  //   }
-                >
+                <NavLink to={path} test-sidemenu="sidemunu">
                   <img className="imgIcon" src={imgSrc} alt="" />
                   {name}
                 </NavLink>
@@ -108,16 +72,9 @@ export default function LayoutContent({
         <div>
           {ROUTES_CONTENT_USER.map((routeKey) => {
             const { path, name, imgSrc } = routeKey;
-            // const isActive = showInnerDocs && path === "/";
             return (
               <React.Fragment key={path}>
-                <NavLink
-                  to={path}
-                  test-sidemenu="sidemunu"
-                  //   className={() =>
-                  //     isActive || pathname === path ? "active" : ""
-                  //   }
-                >
+                <NavLink to={path} test-sidemenu="sidemunu">
                   <img className="imgIcon" src={imgSrc} alt="" />
                   {name}
                 </NavLink>
@@ -126,14 +83,23 @@ export default function LayoutContent({
           })}
           <div className="userCard">
             <div className="details">
-              <Avatar
-                height={40}
-                width={40}
-                name={`${MOCK_USER.FirstName.slice(
-                  0,
-                  1
-                )}${MOCK_USER.LastName.slice(0, 1)}`}
-              />
+              {isLoading ? (
+                <Skeleton
+                  variant="circular"
+                  width={40}
+                  height={40}
+                  sx={{ background: "#fff" }}
+                />
+              ) : (
+                <Avatar
+                  height={40}
+                  width={40}
+                  name={`${MOCK_USER.FirstName.slice(
+                    0,
+                    1
+                  )}${MOCK_USER.LastName.slice(0, 1)}`}
+                />
+              )}
               <div>
                 <div className="name">
                   {`${MOCK_USER.FirstName} ${MOCK_USER.LastName}`}

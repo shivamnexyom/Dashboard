@@ -10,6 +10,7 @@ import SalesChart from "../../components/common/SalesChart";
 import InventoryStatus from "./components/InventoryStatus";
 import RecentOrders from "./components/RecentOrders";
 import { CustomerActivity } from "./components/CustomerActivity";
+import Loader from "../../components/Loader";
 
 export default function Dashboard() {
   const dispatch = useDispatch();
@@ -40,7 +41,7 @@ export default function Dashboard() {
     ordersStatus === "loading" ||
     customersStatus === "loading"
   ) {
-    return <div>Loading...</div>;
+    return <Loader/>;
   }
 
   if (
